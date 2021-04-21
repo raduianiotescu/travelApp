@@ -3,7 +3,6 @@ import { html, fixture, expect } from '@open-wc/testing';
 import '../src/travel-app.js';
 
 describe('TravelApp', () => {
-  expect(true).toEqual(false);
   let element;
   beforeEach(async () => {
     element = await fixture(html`<travel-app></travel-app>`);
