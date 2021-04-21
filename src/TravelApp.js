@@ -58,7 +58,7 @@ export class TravelApp extends LitElement {
     this.title = 'DevSchool app';
   }
 
-  render(
+  render(){
     return html`
       <main>
         <div class="logo">${openWcLogo}</div>
