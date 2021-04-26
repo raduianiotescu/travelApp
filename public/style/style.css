@@ -14,7 +14,24 @@ html{
 
 *, *:before, *:after {
     box-sizing: inherit;
-} 
+}
+
+/*scroll bar*/
+  
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: black;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 20px;
+    border: 1px solid #ededed;
+  }
+
 
 /*header*/
 
@@ -51,6 +68,7 @@ li a:hover:not(.active) {
 .hero-image {
     background-image: url("../images/annie-spratt-qyAka7W5uMY-unsplash.jpg");
     height: 700px;
+    width: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,11 +108,23 @@ li a:hover:not(.active) {
 
   .hero-image-source{
       float:right;
-      margin-top: 685px;
+      margin-top: 682px;
       background-color: bisque;
   }
+
+
+/*section*/
+
+section{
+    padding: 150px 150px 
+}
+
 /*travel destination form*/
 
 /*content description*/
 
 /*footer*/
+
+footer{
+    padding: 150px 150px
+}
