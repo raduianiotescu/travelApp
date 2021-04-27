@@ -7,20 +7,129 @@
   <meta name="Description" content="Put your description here.">
   <base href="/">
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
-    }
-  </style>
+  <link rel="stylesheet" href="public/style/style.css">
+
   <title>travel-app</title>
+
 </head>
 
 <body>
-  <travel-app></travel-app>
+  <!-- travel-app component -->
+  <!-- <travel-app></travel-app> -->
+
+  <!-- header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#footer">Contact</a></li>
+        <li style="float:right"><a class="active" href="#book">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main>
+
+    <!-- hero -->
+    <div class="hero-image">
+      <div class="hero-text">
+        <h1 class="hero-text-title">Discover the world with us!</h1>
+        <button style="border-radius: 25px">Book Now</button>
+      </div>
+      <div class="hero-image-source">
+        Photo by <a
+          href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie
+          Spratt</a>
+        on <a
+          href="https://unsplash.com/s/photos/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </div>
+    </div>
+  
+    <!-- travel destination form -->
+    <section id="book">
+      <div class="row">
+        <form class="destination-form">
+          <label for="destination">Destination</label>
+          <select id="destinations" name="destinations">
+            <option value="paris">Paris</option>
+            <option value="london">London</option>
+            <option value="amsterdam">Amsterdam</option>
+            <option value="bucharest">Bucharest</option>
+          </select>
+      
+          &nbsp;
+      
+          <label for="numberofmembers">Member</label>
+          <input type="number" placeholder="1">
+      
+          &nbsp;
+      
+          <label for="checkindate">Check in</label>
+          <input type="date">
+      
+          &nbsp;
+      
+          <label for="checkoutdate">Check out</label>
+          <input type="date">
+      
+          <br />
+      
+          <input type="submit" style="border-radius: 20px; float:right ">
+        </form>
+      </div>
+     
+    </section>
+  
+    <!-- content description -->
+    <section id="about">
+      <div class="row">
+        <div class="column" style="background-image: url(public/images/annie-spratt-qyAka7W5uMY-unsplash.jpg);">
+          <h1>Image here</h1>
+        </div>
+        <div class="column">
+          <h1>Amazing places to spend your holiday.</h1>
+          <h4>Lorem ipsum text lorem ipsum ipsum lorem lorem ipsum.</h4>
+          <button style="border-radius: 20px; background-color:slateblue; color:white">Explore Now</button>
+        </div>
+      </div>
+    </section>
+  
+  </main>
+
+  <!-- footer -->
+  <footer id="footer">
+    <div class="row">
+      <div class="container column">
+        <h1>Subscribe to our newsletter</h1>
+        <form>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+  
+          <input type="submit" value="Submit">
+  
+        </form>
+      </div>
+
+      <div class="column">
+        <adress>
+            Visit us at:<br>
+            Lorem ipsum 564, Lorem Ipsum<br>
+            USA <br>
+            <a href="tel:+40755263191">07551241212</a>
+        </adress>
+        <br/>
+        &copy; Travel App. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="./src/travel-app.js"></script>
 </body>
