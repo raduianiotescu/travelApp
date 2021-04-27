@@ -85,8 +85,8 @@
     <!-- content description -->
     <section id="about">
       <div class="row">
-        <div class="column">
-          Image here
+        <div class="column" style="background-image: url(public/images/annie-spratt-qyAka7W5uMY-unsplash.jpg);">
+          <h1>Image here</h1>
         </div>
         <div class="column">
           <h1>Amazing places to spend your holiday.</h1>
@@ -100,7 +100,35 @@
 
   <!-- footer -->
   <footer id="footer">
-    Footer
+    <div class="row">
+      <div class="container column">
+        <h1>Subscribe to our newsletter</h1>
+        <form>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+  
+          <input type="submit" value="Submit">
+  
+        </form>
+      </div>
+
+      <div class="column">
+        <adress>
+            Visit us at:<br>
+            Lorem ipsum 564, Lorem Ipsum<br>
+            USA <br>
+            <a href="tel:+40755263191">07551241212</a>
+        </adress>
+        <br/>
+        &copy; Travel App. All rights reserved.
+      </div>
+    </div>
   </footer>
 
   <script type="module" src="./src/travel-app.js"></script>
