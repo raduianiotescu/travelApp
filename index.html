@@ -49,39 +49,51 @@
   
     <!-- travel destination form -->
     <section id="book">
-      <form class="destination-form">
-        <label for="destination">Destination</label>
-        <select id="destinations" name="destinations">
-          <option value="paris">Paris</option>
-          <option value="london">London</option>
-          <option value="amsterdam">Amsterdam</option>
-          <option value="bucharest">Bucharest</option>
-        </select>
-
-        &nbsp;
-
-        <label for="numberofmembers">Member</label>
-        <input type="number" placeholder="1" >
-
-        &nbsp;
-
-        <label for="checkindate">Check in</label>
-        <input type="date">
-
-        &nbsp;
-
-        <label for="checkoutdate">Check out</label>
-        <input type="date">
-
-        <br/>
-
-        <input type="submit" style="border-radius: 20px; float:right ">
-      </form>
+      <div class="row">
+        <form class="destination-form">
+          <label for="destination">Destination</label>
+          <select id="destinations" name="destinations">
+            <option value="paris">Paris</option>
+            <option value="london">London</option>
+            <option value="amsterdam">Amsterdam</option>
+            <option value="bucharest">Bucharest</option>
+          </select>
+      
+          &nbsp;
+      
+          <label for="numberofmembers">Member</label>
+          <input type="number" placeholder="1">
+      
+          &nbsp;
+      
+          <label for="checkindate">Check in</label>
+          <input type="date">
+      
+          &nbsp;
+      
+          <label for="checkoutdate">Check out</label>
+          <input type="date">
+      
+          <br />
+      
+          <input type="submit" style="border-radius: 20px; float:right ">
+        </form>
+      </div>
+     
     </section>
   
     <!-- content description -->
     <section id="about">
-      Content Description
+      <div class="row">
+        <div class="column">
+          Image here
+        </div>
+        <div class="column">
+          <h1>Amazing places to spend your holiday.</h1>
+          <h4>Lorem ipsum text lorem ipsum ipsum lorem lorem ipsum.</h4>
+          <button style="border-radius: 20px; background-color:slateblue; color:white">Explore Now</button>
+        </div>
+      </div>
     </section>
   
   </main>

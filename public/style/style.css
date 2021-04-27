@@ -129,6 +129,20 @@ section{
 
 /*content description*/
 
+.column {
+  float: left;
+  width: 50%;
+  border: solid;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /*footer*/
 
 footer{
