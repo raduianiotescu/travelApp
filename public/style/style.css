@@ -114,15 +114,24 @@ li a:hover:not(.active) {
 /*section*/
 
 section{
-  padding: 150px 150px 
+  padding: 150px 150px ;
+  margin: 30px;
 }
 
 /*travel destination form*/
+
+.destination-form{
+  padding: 30px 30px;
+  border: solid;
+  border-radius: 20px;
+  background-color: slateblue;
+}
 
 /*content description*/
 
 /*footer*/
 
 footer{
-  padding: 150px 150px
+  padding: 50px 50px;
+  background-color: #333;
 }

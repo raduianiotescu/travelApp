@@ -49,15 +49,33 @@
   
     <!-- travel destination form -->
     <section id="book">
-      <form>
-        <label for="cars">Choose a car:</label>
-        <select id="cars" name="cars">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="fiat">Fiat</option>
-          <option value="audi">Audi</option>
+      <form class="destination-form">
+        <label for="destination">Destination</label>
+        <select id="destinations" name="destinations">
+          <option value="paris">Paris</option>
+          <option value="london">London</option>
+          <option value="amsterdam">Amsterdam</option>
+          <option value="bucharest">Bucharest</option>
         </select>
-        <input type="submit">
+
+        &nbsp;
+
+        <label for="numberofmembers">Member</label>
+        <input type="number" placeholder="1" >
+
+        &nbsp;
+
+        <label for="checkindate">Check in</label>
+        <input type="date">
+
+        &nbsp;
+
+        <label for="checkoutdate">Check out</label>
+        <input type="date">
+
+        <br/>
+
+        <input type="submit" style="border-radius: 20px; float:right ">
       </form>
     </section>
   
