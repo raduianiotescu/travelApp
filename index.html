@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="public/style/style.css">
 
   <title>travel-app</title>
+
 <style>
   /*general*/
 
@@ -47,38 +48,62 @@ html{
 
 /*header*/
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
   background-color: #333;
 }
-  
-li {
-  float: left;
+
+.logo {
+  cursor: pointer;
 }
-  
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
   text-decoration: none;
 }
-  
-li a:hover:not(.active) {
-  background-color: #111;
+
+.nav__links {
+  list-style: none;
+  display: flex;
 }
-  
-.active {
-  background-color:slateblue;
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: color 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: white;
+  border-radius: 20px;
+}
+
+.cta {
+  padding: 9px 25px;
+  background-color: slateblue;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: black;
 }
 
 /*hero*/
 
 .hero-image {
-  background-image: url("../images/annie-spratt-qyAka7W5uMY-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80");
   height: 700px;
   width: auto;
   background-position: center;
@@ -201,14 +226,15 @@ footer .container {
 
   <!-- header -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#footer">Contact</a></li>
-        <li style="float:right"><a class="active" href="#book">Book Now</a></li>
-      </ul>
-    </nav>
+            <a class="cta" href="/">Home</a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="#book">Book Now</a>
   </header>
 
   <!-- main content -->
@@ -267,7 +293,7 @@ footer .container {
     <!-- content description -->
     <section id="about">
       <div class="row">
-        <div class="column" style="background-image: url(public/images/annie-spratt-qyAka7W5uMY-unsplash.jpg);">
+        <div class="column" style="background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80);">
           <h1>Image here</h1>
         </div>
         <div class="column">
@@ -300,12 +326,12 @@ footer .container {
         </form>
       </div>
 
-      <div class="column">
-        <adress>
+      <div class="column" style="color: white">
+        <adress >
             Visit us at:<br>
             Lorem ipsum 564, Lorem Ipsum<br>
             USA <br>
-            <a href="tel:+40755263191">07551241212</a>
+            <a href="tel:+40755263191" style= "text-decoration: none; color:rosybrown">07551241212</a>
         </adress>
         <br/>
         &copy; Travel App. All rights reserved.
