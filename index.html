@@ -221,7 +221,7 @@ footer .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 2.4fr 1fr 1.1fr 0.3fr;
-  gap: 7px 0px;
+  gap: 0px 0px;
   grid-template-areas:
     "header header header header"
     "hero-image hero-image hero-image hero-image"
@@ -236,6 +236,77 @@ footer .container {
 .book { grid-area: book; }
 .about-image { grid-area: about-image; }
 .about-content { grid-area: about-content; }
+
+/* Mobile */
+
+
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #24252a;
+  overflow-x: hidden;
+  transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #0088a9;
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links, .bookButton {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}
+
 
 </style>
 
@@ -255,8 +326,18 @@ footer .container {
                     <li><a href="#footer">Contact</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#book">Book Now</a>
+            <a class="cta bookButton" href="#book">Book Now</a>
+            <p class="menu cta">Menu</p>
   </header>
+
+  <div class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+        <a href="#">Services</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+    </div>
+</div>
 
   <!-- main content -->
   <!-- <main> -->

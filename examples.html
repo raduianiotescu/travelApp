@@ -44,6 +44,53 @@ nav ul li{
     flex: 0 1 10%;
 }
 
+.burger{
+    display:none;
+}
+
+@media screen and (max-width:480px){
+    nav ul{
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav{
+        padding: 0px;
+        position: relative;
+    }
+
+    nav li a{
+        text-align: center;
+        display: block;
+    }
+
+    .burger{
+        display: initial;
+        width: 40px;
+        height: 40px;
+        border: 1px solid black;
+        position: absolute;
+        top:5px;
+        right:5px;
+    }
+
+    .burger span{
+        display: block;
+        margin : 5px auto 0;
+        border: 1px solid tomato;
+        width: calc(100% - 10px)
+    }
+
+    .burger span:nth-of-type(2){
+        margin-top: 10px;
+    }
+
+    .burger span:nth-of-type(3){
+        margin-top: 10px;
+    }
+}
+
 </style>
 
 </head>
@@ -61,13 +108,20 @@ container with a top and bottom padding of 10px and left and right padding of 20
 
     <nav>
         <ul>
-            <li><a href=""><img src="" alt=""></a></li>
+            <li><a href=""><img src="" alt="">Logo</a></li>
             <li><a href="">Item 1</a></li>
             <li><a href="">Item 2</a></li>
             <li><a href="">Item 3</a></li>
             <li><a href="">Item 4</a></li>
             <li><a href="">Item 5</a></li>
+
         </ul>
+
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
 
     </nav>
