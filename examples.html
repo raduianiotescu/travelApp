@@ -91,6 +91,10 @@ nav ul li{
     }
 }
 
+.span-class{
+    background-color: aqua;
+}
+
 </style>
 
 </head>
@@ -123,9 +127,36 @@ container with a top and bottom padding of 10px and left and right padding of 20
             <span></span>
         </div>
 
+       
+
 
     </nav>
-
+ <word-definition></word-definition>
 </body>
+<script>
+    class WordDefinition extends HTMLElement{
+        static get observedAttributes(){
+            return ['hidden']
+        }
+        constructor(){
+            super();
+            console.log("constructed")
+        }
+        connectedCallback(){
+            console.log('connected')
+            const shadow = this.attachShadow({mode: "open"})
+            shadow.innerHTML = `<p><span class="span-class">html</span></p>`
+        }
+        disconnectedCallback(){
+            console.log('disconnected')
+        }
+        attributeChangedCallback(attribute, oldvalue, newvalue){
+            console.log(`attribute changed ${attribute} , ${oldvalue} to ${newvalue}`)
+        }
+    }
+
+    customElements.define('word-definition',WordDefinition)
+
+</script>
 
 </html>
