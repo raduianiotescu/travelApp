@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import './todolistitem';
+import './todolistitem.js';
 
 class ToDoList extends LitElement {
   static get properties() {
