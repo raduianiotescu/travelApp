@@ -131,7 +131,17 @@ container with a top and bottom padding of 10px and left and right padding of 20
 
 
     </nav>
- <word-definition></word-definition>
+
+    <h1>Lorem <span aria-describedby="definitionIpsum">ipsum</span> dolor <span aria-describedby="definitionSit">sit</span> amet</h1>
+ <word-definition id="definitionIpsum">
+     <h1 slot="header">title ipsum</h1>
+     <p>definitionIpsum</p>
+</word-definition>
+
+<word-definition id="definitionSit">
+    <h1 slot="header">title sit</h1>
+    <p>definitionSit</p>
+</word-definition>
 </body>
 <script>
     class WordDefinition extends HTMLElement{
@@ -140,18 +150,51 @@ container with a top and bottom padding of 10px and left and right padding of 20
         }
         constructor(){
             super();
+            this._show = this._show.bind(this)
+            this._hide = this._hide.bind(this)
+            this.hidden=true;
             console.log("constructed")
         }
         connectedCallback(){
+            const target = document.querySelector(`[aria-describedby=${this.id}]`)
+            target.addEventListener('mouseenter', this._show)
+            target.addEventListener('mouseleave', this._hide)
             console.log('connected')
             const shadow = this.attachShadow({mode: "open"})
-            shadow.innerHTML = `<p><span class="span-class">html</span></p>`
+            shadow.innerHTML = `
+            <style>
+                [name="header"]{
+                    border-bottom: 1px solid grey;
+                    margin-bottom: 16px;
+                    padding-bottom: 16px;
+                    display:block;
+                }
+                .span-class{
+                    color: blue;
+                }
+                :host{
+                    background-color: red;
+                    display: hidden;
+                }
+                :host:hover{
+                    display:block;
+                }
+            </style>
+            <slot name="header"></slot>
+            <slot></slot>
+            `
         }
         disconnectedCallback(){
             console.log('disconnected')
         }
         attributeChangedCallback(attribute, oldvalue, newvalue){
             console.log(`attribute changed ${attribute} , ${oldvalue} to ${newvalue}`)
+        }
+        _show(){
+            this.hidden=false;
+        }
+        _hide(){
+            this.hidden=true;
         }
     }
 
