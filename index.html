@@ -301,13 +301,14 @@
       .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.2fr 2.4fr 1fr 1.1fr 0.3fr;
+        grid-template-rows: 0.2fr 1.6fr 0.5fr 1fr 1.1fr 0.3fr;
         gap: 0px 0px;
         grid-template-areas:
           'header header header header'
           'hero-image hero-image hero-image hero-image'
           '. book book .'
           'about-image about-image about-content about-content'
+          'destinations destinations destinations destinations'
           'footer footer footer footer';
       }
 
@@ -328,6 +329,9 @@
       }
       .about-content {
         grid-area: about-content;
+      }
+      .destinations {
+        grid-area: destinations;
       }
 
       /* Mobile */
@@ -528,6 +532,11 @@
           Explore Now
         </button>
       </div>
+      <!-- destinations -->
+
+      <div class="destinations" id="destinations">
+        <travel-card name="Card Radu" description="Descriere"></travel-card>
+      </div>
 
       <!-- </main> -->
 
@@ -584,14 +593,20 @@
     </div>
 
     <script type="module" src="./src/travel-app.js"></script>
+
+    <!-- card-web-comp script -->
+    <script type="module" src="./travel-card.js"></script>
   </body>
+
+  <!-- fetch data to console log script
 
   <script>
     fetch('https://devschool-2020.firebaseio.com/radu/places.json')
       .then(response => response.json())
       .then(data => console.log(data));
-  </script>
+  </script> -->
 
+  <!-- mobile nav script -->
   <script type="text/javascript">
     const doc = document;
     const menuOpen = doc.querySelector('.menu');
