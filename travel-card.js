@@ -35,6 +35,22 @@ class TravelCard extends LitElement {
     `;
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    const places = 'https://devschool-2020.firebaseio.com/radu/places.json';
+    fetch(places)
+      .then(response => response.json())
+      .then(data => {
+        Object.values(data).forEach(location => {
+          console.log(location.name, location.type, location.description);
+          this.name = location.name;
+          this.description = location.description;
+          this.imageUrl = location.imageUrl;
+        });
+      });
+  }
+
   render() {
     return html`
       <div class="card">
