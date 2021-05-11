@@ -1,66 +1,44 @@
 import { LitElement, html, css } from 'lit-element';
+import './travel-card-item';
 
 class TravelCard extends LitElement {
   static get properties() {
     return {
-      name: { type: String },
-      type: { type: String },
-      description: { type: String },
-      imageUrl: { type: String },
+      places: { type: Array },
     };
-  }
-
-  constructor() {
-    super();
-    this.name = 'default name';
-    this.type = 'default type';
-    this.description = 'default description';
-    this.img = 'default image url';
   }
 
   static get styles() {
     return css`
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 5px;
-        width: 300px;
-      }
-      .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-      }
-      .container {
-        padding: 2px 16px;
+      li {
+        padding: 0px 10px;
+        display: inline-block;
       }
     `;
   }
 
   connectedCallback() {
     super.connectedCallback();
-
-    const places = 'https://devschool-2020.firebaseio.com/radu/places.json';
-    fetch(places)
-      .then(response => response.json())
+    fetch('https://devschool-2020.firebaseio.com/radu/places.json')
+      .then(res => res.json())
       .then(data => {
-        Object.values(data).forEach(location => {
-          console.log(location.name, location.type, location.description);
-          this.name = location.name;
-          this.description = location.description;
-          this.imageUrl = location.imageUrl;
-        });
+        // console.log(data);
+        this.places = data;
       });
   }
 
   render() {
+    // console.log(this.places);
     return html`
-      <div class="card">
-        <img src="${this.imageUrl}" width="300px" alt="travelcardimg" />
-
-        <div class="container">
-          <h3><b> ${this.name} </b></h3>
-          <p>${this.description}</p>
-        </div>
-      </div>
+      <ul>
+        ${Object.entries(this.places).map(
+          ([, place]) => html`
+            <li>
+              <travel-card-item .dest=${place}></travel-card-item>
+            </li>
+          `
+        )}
+      </ul>
     `;
   }
 }
