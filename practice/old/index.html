@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
+
+    <link rel="stylesheet" href="public/style/style.css" />
+
+    <title>travel-app</title>
+
+    <style>
+      /*general*/
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      /*scroll bar*/
+
+      *::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: black;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: #333;
+        border-radius: 20px;
+        border: 2px solid #333;
+      }
+
+      /*header*/
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10%;
+        background-color: #333;
+      }
+
+      .home {
+        cursor: pointer;
+        background-color: #333;
+        border-radius: 20px;
+        padding: 0px 20px;
+      }
+
+      .nav__links a,
+      .cta,
+      .home,
+      .overlay__content a {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: #edf0f1;
+        text-decoration: none;
+      }
+
+      .nav__links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav__links li {
+        padding: 0px 20px;
+      }
+
+      .nav__links li a {
+        transition: color 0.3s ease 0s;
+      }
+
+      .home:hover,
+      .nav__links li a:hover {
+        color: white;
+        border-radius: 20px;
+      }
+
+      .cta {
+        padding: 9px 25px;
+        background-color: slateblue;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease 0s;
+      }
+
+      .cta:hover {
+        background-color: black;
+      }
+
+      /* mobile nav */
+
+      .menu {
+        display: none;
+      }
+
+      .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: #24252a;
+        overflow-x: hidden;
+        transition: width 0.5s ease 0s;
+      }
+
+      .overlay--active {
+        width: 100%;
+      }
+
+      .overlay__content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .overlay a {
+        padding: 15px;
+        font-size: 36px;
+        display: block;
+        transition: color 0.3s ease 0s;
+      }
+
+      .overlay a:hover,
+      .overlay a:focus {
+        color: #0088a9;
+      }
+      .overlay .close {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+        color: #edf0f1;
+      }
+
+      @media screen and (max-height: 450px) {
+        .overlay a {
+          font-size: 20px;
+        }
+        .overlay .close {
+          font-size: 40px;
+          top: 15px;
+          right: 35px;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        .nav__links,
+        .cta {
+          display: none;
+        }
+        .menu {
+          display: initial;
+        }
+      }
+
+      /*hero*/
+
+      .hero-image {
+        background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80');
+        height: 700px;
+        width: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+
+      .hero-text-title {
+        background-color: #333;
+        font-size: 50px;
+        padding: 20px 20px;
+        border-radius: 25px;
+      }
+
+      .hero-text button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 10px 25px;
+        color: white;
+        background-color: slateblue;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .hero-text button:hover {
+        background-color: #555;
+        color: white;
+      }
+
+      .hero-image-source {
+        float: right;
+        margin-top: 682px;
+        background-color: bisque;
+      }
+
+      /*section*/
+
+      section {
+        padding: 150px 150px;
+        margin: 30px;
+      }
+
+      /*travel destination form*/
+
+      .destination-form {
+        padding: 30px 30px;
+        border: solid;
+        border-radius: 20px;
+        background-color: slateblue;
+      }
+
+      /*content description*/
+
+      .column {
+        float: left;
+        width: 50%;
+        padding: 50px;
+      }
+
+      .row:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      /*footer*/
+
+      footer {
+        padding: 50px 50px;
+        background-color: #333;
+      }
+
+      footer input[type='text'],
+      footer select,
+      footer textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+      }
+
+      footer input[type='submit'] {
+        background-color: slateblue;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      footer input[type='submit']:hover {
+        background-color: #333;
+      }
+
+      footer .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      /* grid system */
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 1.6fr 0.5fr 1fr 1.1fr 0.3fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          'header header header header'
+          'hero-image hero-image hero-image hero-image'
+          '. book book .'
+          'about-image about-image about-content about-content'
+          'destinations destinations destinations destinations'
+          'footer footer footer footer';
+      }
+
+      .header {
+        grid-area: header;
+      }
+      .footer {
+        grid-area: footer;
+      }
+      .hero-image {
+        grid-area: hero-image;
+      }
+      .book {
+        grid-area: book;
+      }
+      .about-image {
+        grid-area: about-image;
+      }
+      .about-content {
+        grid-area: about-content;
+      }
+      .destinations {
+        grid-area: destinations;
+      }
+
+      /* Mobile */
+
+      .menu {
+        display: none;
+      }
+
+      .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: #24252a;
+        overflow-x: hidden;
+        transition: width 0.5s ease 0s;
+      }
+
+      .overlay--active {
+        width: 100%;
+      }
+
+      .overlay__content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .overlay a {
+        padding: 15px;
+        font-size: 36px;
+        display: block;
+        transition: color 0.3s ease 0s;
+      }
+
+      .overlay a:hover,
+      .overlay a:focus {
+        color: #0088a9;
+      }
+      .overlay .close {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+        color: #edf0f1;
+      }
+
+      @media screen and (max-height: 450px) {
+        .overlay a {
+          font-size: 20px;
+        }
+        .overlay .close {
+          font-size: 40px;
+          top: 15px;
+          right: 35px;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        .nav__links,
+        .bookButton {
+          display: none;
+        }
+        .menu {
+          display: initial;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- travel-app component -->
+    <!-- <travel-app></travel-app> -->
+    <div class="grid-container">
+      <!-- header -->
+      <header class="header">
+        <a class="home" href="/">TRAVELAPP</a>
+        <nav>
+          <ul class="nav__links">
+            <li><a href="#">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="cta bookButton" href="#book">Book Now</a>
+        <p class="menu cta">Menu</p>
+      </header>
+
+      <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+          <a href="/#">Home</a>
+          <a href="/#">Destinations</a>
+          <a href="/#">Articles</a>
+          <a href="/#">Contact</a>
+        </div>
+      </div>
+
+      <!-- main content -->
+      <!-- <main> -->
+
+      <!-- hero -->
+
+      <div class="hero-image">
+        <div class="hero-text">
+          <h1 class="hero-text-title">Discover the world with us!</h1>
+          <button style="border-radius: 25px;">Book Now</button>
+        </div>
+        <div class="hero-image-source">
+          Photo by
+          <a
+            href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Annie Spratt</a
+          >
+          on
+          <a
+            href="https://unsplash.com/s/photos/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Unsplash</a
+          >
+        </div>
+      </div>
+
+      <!-- travel destination form -->
+      <div class="book" id="book">
+        <div class="row">
+          <form class="destination-form">
+            <label for="destination">Destination</label>
+            <select id="destinations" name="destinations">
+              <option value="paris">Paris</option>
+              <option value="london">London</option>
+              <option value="amsterdam">Amsterdam</option>
+              <option value="bucharest">Bucharest</option>
+            </select>
+
+            &nbsp;
+
+            <label for="numberofmembers">Member</label>
+            <input type="number" placeholder="1" />
+
+            &nbsp;
+
+            <label for="checkindate">Check in</label>
+            <input type="date" />
+
+            &nbsp;
+
+            <label for="checkoutdate">Check out</label>
+            <input type="date" />
+
+            <br />
+
+            <input type="submit" style="border-radius: 20px; float: right;" />
+          </form>
+        </div>
+      </div>
+
+      <!-- content description -->
+
+      <!-- v1 without grid 
+    <section id="about">
+      <div class="row">
+        <div class="column" style="background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80);">
+          <h1>Image here</h1>
+        </div>
+        <div class="column">
+          <h1>Amazing places to spend your holiday.</h1>
+          <h4>Lorem ipsum text lorem ipsum ipsum lorem lorem ipsum.</h4>
+          <button style="border-radius: 20px; background-color:slateblue; color:white">Explore Now</button>
+        </div>
+      </div>
+    </section>
+  -->
+
+      <!-- v2 with grid system -->
+
+      <div
+        class="about-image"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80);
+        "
+      >
+        <h1>Image here</h1>
+      </div>
+
+      <div class="about-content" id="about">
+        <h1>Amazing places to spend your holiday.</h1>
+        <h4>Lorem ipsum text lorem ipsum ipsum lorem lorem ipsum.</h4>
+        <button
+          style="
+            border-radius: 20px;
+            background-color: slateblue;
+            color: white;
+          "
+        >
+          Explore Now
+        </button>
+      </div>
+      <!-- destinations -->
+
+      <div class="destinations" id="destinations">
+        <travel-card></travel-card>
+      </div>
+
+      <!-- </main> -->
+
+      <!-- footer -->
+      <footer class="footer" id="footer">
+        <div class="row">
+          <div class="container column">
+            <h1>Subscribe to our newsletter</h1>
+            <form>
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your name.."
+              />
+
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your last name.."
+              />
+
+              <label for="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Your email.."
+              />
+
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+
+          <div class="column" style="color: white;">
+            <adress>
+              Visit us at:<br />
+              Lorem ipsum 564, Lorem Ipsum<br />
+              USA <br />
+              <a
+                href="tel:+40755263191"
+                style="text-decoration: none; color: rosybrown;"
+                >07551241212</a
+              >
+            </adress>
+            <br />
+            &copy; Travel App. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/travel-app.js"></script>
+
+    <!-- card-web-comp script -->
+    <script
+      type="module"
+      src="./src/webcomponents/TravelCard/travel-card.js"
+    ></script>
+    <!-- mobile nav script -->
+    <script type="module" src="./src/js/mobile-collapse.js"></script>
+  </body>
+
+  <!-- fetch data to console log script
+
+  <script>
+    fetch('https://devschool-2020.firebaseio.com/radu/places.json')
+      .then(response => response.json())
+      .then(data => console.log(data));
+  </script> -->
+</html>
