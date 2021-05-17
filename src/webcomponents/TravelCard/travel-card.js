@@ -11,7 +11,7 @@ class TravelCard extends LitElement {
   static get styles() {
     return css`
       li {
-        padding: 0px 10px;
+        padding: 10px 10px;
         display: inline-block;
       }
     `;
@@ -30,7 +30,7 @@ class TravelCard extends LitElement {
   render() {
     // console.log(this.places);
     return html`
-      <ul>
+      <ul >
         ${Object.entries(this.places).map(
           ([, place]) => html`
             <li>

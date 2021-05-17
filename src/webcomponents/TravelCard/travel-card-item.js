@@ -29,7 +29,7 @@ class TravelCardItem extends LitElement {
       <div class="card">
         <img src="${this.dest.imageUrl}" width="300px" alt="travelcardimg" />
         <div class="container">
-          <h3><b> ${this.dest.name} </b></h3>
+          <h3><strong> ${this.dest.name} </strong></h3>
           <p>${this.dest.description}</p>
         </div>
       </div>
