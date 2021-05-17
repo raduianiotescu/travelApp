@@ -32,7 +32,7 @@ export default merge(baseConfig, {
   plugins: [
     copy({
       targets: [
-        { src: 'assets', dest: 'dist' },
+        { src: './style.css', dest: 'dist' },
         { src: './destinations.html', dest: 'dist' },
       ],
     }),
