@@ -4,6 +4,7 @@ import './AddDestinationForm/addDestinationForm.js';
 import './AddDestinationInput/addDestinationInput.js';
 import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
 import { Required, MinLength } from '@lion/form-core';
+import { isRomania } from '../../validators/isRomania';
 
 class AddDestination extends LitElement {
   static get styles() {
