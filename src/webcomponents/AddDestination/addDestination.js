@@ -2,6 +2,8 @@ import { LitElement, css, html } from '@lion/core';
 import { ajax } from '@lion/ajax';
 import './AddDestinationForm/addDestinationForm.js';
 import './AddDestinationInput/addDestinationInput.js';
+import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
+import { Required, MinLength } from '@lion/form-core';
 
 class AddDestination extends LitElement {
   static get styles() {
@@ -11,7 +13,7 @@ class AddDestination extends LitElement {
         padding: 4% 12%;
         border: solid black;
         border-radius: 48px;
-        background-color: #a8d6ef;
+        background-color: #8e9094;
       }
 
       button {
@@ -35,24 +37,33 @@ class AddDestination extends LitElement {
   }
 
   render() {
+    loadDefaultFeedbackMessages();
     return html`
       <form name="add-form" @submit=${this._handleFormSubmit}>
         <add-destination-form>
           <add-destination-input
             name="name"
             label="Name"
+            .fieldName="${'name'}"
+            .validators="${[new Required(), new MinLength(5)]}"
           ></add-destination-input>
           <add-destination-input
             name="type"
             label="Type"
+            .fieldName="${'type'}"
+            .validators="${[new Required()]}"
           ></add-destination-input>
           <add-destination-input
             name="description"
             label="Description"
+            .fieldName="${'description'}"
+            .validators="${[new Required()]}"
           ></add-destination-input>
           <add-destination-input
             name="imageUrl"
             label="Image Url"
+            .fieldName="${'imageUrl'}"
+            .validators="${[new Required()]}"
           ></add-destination-input>
           <button type="submit">Add Destination</button>
         </add-destination-form>
