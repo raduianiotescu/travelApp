@@ -1,5 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import { openWcLogo } from './open-wc-logo.js';
+import './views/AdminView.js';
+import './views/DestinationsView.js';
+import './views/HomeView.js';
 
 export class TravelApp extends LitElement {
   static get properties() {
@@ -56,26 +59,46 @@ export class TravelApp extends LitElement {
   constructor() {
     super();
     this.title = 'DevSchool app';
+    this.routes = [
+      { path: '/', component: 'home-view' },
+      { path: '/destinations', component: 'destinations-view' },
+      { path: '/admin', component: 'admin-view' },
+    ];
+    this._route = this._route.bind(this);
+    window.addEventListener('popstate', this._route);
+  }
+
+  firstUpdated() {
+    this._route();
+  }
+
+  _route() {
+    const main = this.shadowRoot.querySelector('main');
+    main.firstChild?.remove();
+    let urlMatch = this.routes.find(route => route.path === location.pathname);
+    console.log(urlMatch);
+    if (!urlMatch) {
+      urlMatch = this.routes[0];
+    }
+    const component = document.createElement(urlMatch.component);
+    main.appendChild(component);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    history.pushState(null, null, e.target.href);
+    this._route();
   }
 
   render() {
     return html`
-      <main>
-        <div class="logo">${openWcLogo}</div>
-        <h1>${this.title}</h1>
+      <header>
+        <a href="/" @click="${this.handleClick}">Home</a>
+        <a href="/destinations " @click="${this.handleClick}">Destinations</a>
+        <a href="/admin" @click="${this.handleClick}">Admin</a>
+      </header>
 
-        <p>Welcome traveller 🚀 !</p>
-      </main>
-
-      <!-- <p class="app-footer">
-        Made using
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
-      </p> -->
+      <main id="app"></main>
     `;
   }
 }
