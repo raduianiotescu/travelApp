@@ -12,196 +12,62 @@
     <link rel="stylesheet" href="./style.css" />
 
     <title>travel-app</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+      html,
+      body {
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: 'Noto Sans JP', sans-serif;
+      }
+    </style>
   </head>
 
   <body>
-      <nav class="nav">
-        <div class="nav-menu flex-row">
-            <div class="nav-brand">
-                <a href="#" class="text-gray">Travel App</a>
-            </div>
-            <div class="toggle-collapse">
-                <div class="toggle-icons menu">
-                    Menu
-                </div>
-            </div>
-            <div>
-                <ul class="nav-items">
-                  <li class="nav-link">
-                    <a href="/add">Add Destination</a>
-                </li>
-                    <li class="nav-link">
-                        <a href="#">Services</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Destinations</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">About</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
+    <travel-app></travel-app>
+
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="about-us">
+          <h2>About us</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+            quia atque nemo ad modi officiis iure, autem nulla tenetur
+            repellendus.
+          </p>
         </div>
-        <div class="overlay">
-          <a class="close">&times;</a>
-            <div class="overlay__content">
-              <a href="#">Home</a>
-              <a href="/add">Add Destination</a>
-              <a href="#travel-card">Destinations</a>
-              <a href="#category">Articles</a>
-              <a href="#footer">Contact</a>
+
+        <div class="newsletter">
+          <h2>Newsletter</h2>
+          <p>Stay update with our latest</p>
+          <div class="form-element">
+            <input type="text" placeholder="Email" />
           </div>
-        </div>
-      </nav>
-    
-      <main>
-      <section class="site-title">
-          <div class="site-background">
-              <h3>Join today!</h3>
-              <h1>Discover the world with us!</h1>
-              <button class="btn">Explore</button>
-
-              <div class="booking_info"> 
-                <div class="booking_details">
-
-                  <div class="item">
-                    <label for="destination">Destination</label>
-                    <select id="destinations" name="destinations">
-                      <option value="paris">Paris</option>
-                      <option value="london">London</option>
-                      <option value="amsterdam">Amsterdam</option>
-                      <option value="bucharest">Bucharest</option>
-                    </select>
-                    &nbsp;
-                    &nbsp;
-                  </div>
-
-                  <div class="item">
-                    <label for="checkindate">Check in</label>
-                    <input type="date" />
-                  </div>
-        
-                  <div class="item">
-                    <label for="checkoutdate">Check out</label>
-                    <input type="date" />
-                  </div>
-        
-                  <div class="item">
-                    <label for="numberofmembers">Member</label>
-                    <input type="number" placeholder="1" />
-                  </div>
-        
-                  <div class="item">
-                    <div class="cta active">Search</div>
-                  </div>
-        
-                </div>
-              </div>
-          </div>
-      </section>
-      </main>
-
-      <section>
-        <div class="dest">
-            <div class="container">
-              <div class="dest-content">
-                    <h1 style="text-align: center;">Our most visited destinations!</h1>
-                    <h3 style="text-align: center;">Check them out now!</h3>
-                    <br/>
-                    <travel-card class="travel-card" id="travel-card"></travel-card>
-              </div>
-                    
-            </div>
-        </div>
-      </section>
-
-      <section>
-        <h1 style="text-align: center;">Check out some articles</h1>
-          <div class="site-content">
-            <div class="posts">
-              <div class="post-content">
-                <div class="post-image">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1554366347-897a5113f6ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" class="img" alt="dest1">
-                    </div>
-                </div>
-            </div>
-            </div>
-            <aside class="sidebar">
-              <div class="category" id="category">
-                  <h2>Category</h2>
-                  <ul class="category-list">
-                      <li class="list-items">
-                          <a href="#">Seaside</a>
-                          <span>(05)</span>
-                      </li>
-                      <li class="list-items">
-                          <a href="#">Nature</a>
-                          <span>(02)</span>
-                      </li>
-                      <li class="list-items">
-                          <a href="#">Lifestyle</a>
-                          <span>(07)</span>
-                      </li>
-                      <li class="list-items">
-                          <a href="#">European Cities</a>
-                          <span>(01)</span>
-                      </li>
-                      <li class="list-items">
-                          <a href="#">Food</a>
-                          <span>(08)</span>
-                      </li>
-                  </ul>
-                  <div class="post-title">
-                    <a href="#">Did you know that traveling has health benefits?</a>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
-                        adipisci iusto totam placeat corrupti ipsum, tempora magnam incidunt aperiam tenetur a
-                        nobis, voluptate, numquam architecto fugit. Eligendi quidem ipsam ducimus minus magni
-                        illum similique veniam tempore unde?
-                    </p>
-                    <button class="btn post-btn">Read More &nbsp;</button>
-                </div>
-              </div>
-          </div>
-      </section>
-      
-      <footer class="footer" id="footer">
-        <div class="container">
-            <div class="about-us">
-                <h2>About us</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
-                    iure, autem nulla tenetur repellendus.</p>
-            </div>
-
-            <div class="newsletter">
-                <h2>Newsletter</h2>
-                <p>Stay update with our latest</p>
-                <div class="form-element">
-                    <input type="text" placeholder="Email"/>
-                </div>
-                <h6><button class="btn post-btn">Subscribe</button></h6>
-            </div>
-
-            <div class="follow">
-                <h2>Follow us</h2>
-                <p>Let us be Social</p>
-                <a href="www.facebook.com" style="color: white">
-                    Check Our Facebook
-                </a>
-            </div>
+          <h6><button class="btn post-btn">Subscribe</button></h6>
         </div>
 
-        <div class="rights flex-row">
-            <h4 class="text-gray">
-                Copyright ©2021 All rights reserved
-            </h4>
+        <div class="follow">
+          <h2>Follow us</h2>
+          <p>Let us be Social</p>
+          <a href="www.facebook.com" style="color: white;">
+            Check Our Facebook
+          </a>
         </div>
+      </div>
+
+      <div class="rights flex-row">
+        <h4 class="text-gray">
+          Copyright ©2021 All rights reserved
+        </h4>
+      </div>
     </footer>
 
-    <script type="module" src="./src/webcomponents/TravelCard/travel-card.js"></script>
-    <script type="module" src="./src/js/mobile-collapse.js"></script>
+    <script
+      type="module"
+      src="./src/webcomponents/TravelCard/travel-card.js"
+    ></script>
+    <!-- <script type="module" src="./src/js/mobile-collapse.js"></script> -->
+    <script type="module" src="./src/travel-app.js"></script>
   </body>
 </html>
