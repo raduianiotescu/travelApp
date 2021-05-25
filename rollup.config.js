@@ -36,6 +36,7 @@ export default merge(baseConfig, {
         { src: './destinations.html', dest: 'dist' },
         { src: './_redirects', dest: 'dist' },
         { src: './add', dest: 'dist' },
+        { src: './src', dest: 'dist' },
       ],
     }),
   ],
