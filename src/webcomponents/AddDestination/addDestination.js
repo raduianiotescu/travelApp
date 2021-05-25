@@ -4,6 +4,7 @@ import './AddDestinationForm/addDestinationForm.js';
 import './AddDestinationInput/addDestinationInput.js';
 import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
 import { Required, MinLength } from '@lion/form-core';
+import { isRomania } from '../../validators/isRomania';
 
 class AddDestination extends LitElement {
   static get styles() {
@@ -39,8 +40,8 @@ class AddDestination extends LitElement {
   render() {
     loadDefaultFeedbackMessages();
     return html`
-      <form name="add-form" @submit=${this._handleFormSubmit}>
-        <add-destination-form>
+      <add-destination-form>
+        <form name="add-form" @submit=${this._handleFormSubmit}>
           <add-destination-input
             name="name"
             label="Name"
@@ -66,8 +67,8 @@ class AddDestination extends LitElement {
             .validators="${[new Required()]}"
           ></add-destination-input>
           <button type="submit">Add Destination</button>
-        </add-destination-form>
-      </form>
+        </form>
+      </add-destination-form>
     `;
   }
 
@@ -76,7 +77,12 @@ class AddDestination extends LitElement {
     const form = event.target;
     const formData = new FormData(form);
     this.locations = Object.fromEntries(formData);
-    this.addCall(this.locations);
+    let isFormValid = !form.parentElement.showsFeedbackFor.includes('error');
+
+    console.log({ isFormValid });
+    if (isFormValid) {
+      this.addCall(this.locations);
+    }
   }
 
   async addCall() {

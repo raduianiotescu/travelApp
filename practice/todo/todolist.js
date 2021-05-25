@@ -20,10 +20,7 @@ class ToDoList extends LitElement {
 
   constructor() {
     super();
-    this._toDos = [
-      { text: 'lorem ipsum', done: true },
-      { text: 'hello world', done: false },
-    ];
+    this._toDos = JSON.parse(localStorage.getItem('todovalue'));
   }
 
   connectedCallback() {
@@ -51,11 +48,11 @@ class ToDoList extends LitElement {
         <button type="submit">Add</button>
       </form>
 
-      <!-- <article
+      <article
         @click="${event => {
           console.log(event.target, event.currentTarget);
         }}"
-      > -->
+      >
         <div>
           <p><span>Hello World</span></p>
         </div>
@@ -66,12 +63,17 @@ class ToDoList extends LitElement {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
-    // console.log(Object.fromEntries(formData));
-    // console.log(event);
+    console.log(Object.fromEntries(formData));
+    console.log(event);
     const newToDo = { ...Object.fromEntries(formData), done: false };
     this._toDos = [...this._toDos, newToDo];
+    this._updateMyStorage();
 
     form.reset();
+  }
+
+  _updateMyStorage() {
+    localStorage.setItem('todovalue', JSON.stringify(this._toDos));
   }
 
   _handleUpdateToDo(index, event) {
@@ -80,6 +82,7 @@ class ToDoList extends LitElement {
       { text: event.detail.text, done: this._toDos[index].done },
       ...this._toDos.slice(index + 1),
     ];
+    this._updateMyStorage();
   }
 }
 
