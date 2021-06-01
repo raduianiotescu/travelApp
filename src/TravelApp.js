@@ -3,6 +3,7 @@ import { Router } from '@vaadin/router';
 import './pages/Homepage.js';
 import './pages/AddPage.js';
 import './webcomponents/NavComponent.js';
+import './webcomponents/FooterComponent';
 import styles from './global.styles.js';
 
 export class TravelApp extends LitElement {
@@ -18,7 +19,6 @@ export class TravelApp extends LitElement {
       css`
         :host {
           display: block;
-          
         }
       `,
     ];
@@ -43,10 +43,7 @@ export class TravelApp extends LitElement {
     return html`
       <navbar-component></navbar-component>
       <main id="main"></main>
+      <footer-component></footer-component>
     `;
-  }
-
-  _getCustomTitle(newTitle) {
-    return `Your new title is ${newTitle}`;
   }
 }

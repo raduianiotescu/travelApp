@@ -9,65 +9,28 @@
     <meta name="Description" content="Put your description here." />
     <base href="/" />
 
-    <link rel="stylesheet" href="./style.css" />
-
     <title>travel-app</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-
       html,
       body {
         margin: 0%;
         box-sizing: border-box;
         font-family: 'Noto Sans JP', sans-serif;
       }
+      :root {
+        --text-gray: #3f4954;
+        --text-light: #686666da;
+        --bg-color: #0f0f0f;
+        --white: #ffffff;
+        --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      }
     </style>
   </head>
 
   <body>
     <travel-app></travel-app>
-
-    <footer class="footer" id="footer">
-      <div class="container">
-        <div class="about-us">
-          <h2>About us</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            quia atque nemo ad modi officiis iure, autem nulla tenetur
-            repellendus.
-          </p>
-        </div>
-
-        <div class="newsletter">
-          <h2>Newsletter</h2>
-          <p>Stay update with our latest</p>
-          <div class="form-element">
-            <input type="text" placeholder="Email" />
-          </div>
-          <h6><button class="btn post-btn">Subscribe</button></h6>
-        </div>
-
-        <div class="follow">
-          <h2>Follow us</h2>
-          <p>Let us be Social</p>
-          <a href="www.facebook.com" style="color: white;">
-            Check Our Facebook
-          </a>
-        </div>
-      </div>
-
-      <div class="rights flex-row">
-        <h4 class="text-gray">
-          Copyright ©2021 All rights reserved
-        </h4>
-      </div>
-    </footer>
-
-    <script
-      type="module"
-      src="./src/webcomponents/TravelCard/travel-card.js"
-    ></script>
-    <!-- <script type="module" src="./src/js/mobile-collapse.js"></script> -->
     <script type="module" src="./src/travel-app.js"></script>
+    <!-- <script type="text/javascript" src="./src/js/mobile-collapse.js"></script> -->
   </body>
 </html>

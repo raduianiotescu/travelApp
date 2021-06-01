@@ -10,7 +10,7 @@ export class NavComponent extends LitElement {
 
         .nav {
           background: white;
-          /* padding: 0 2rem; */
+          padding: 0 2rem;
           height: 0rem;
           min-height: 10vh;
           overflow: hidden;
@@ -164,7 +164,6 @@ export class NavComponent extends LitElement {
       `,
     ];
   }
-
   render() {
     return html`
       <nav class="nav">
@@ -173,7 +172,7 @@ export class NavComponent extends LitElement {
             <a href="#" class="text-gray">Travel App</a>
           </div>
           <div class="toggle-collapse">
-            <div class="toggle-icons menu">
+            <div class="toggle-icons menu" id="menu">
               Menu
             </div>
           </div>
@@ -197,9 +196,9 @@ export class NavComponent extends LitElement {
             </ul>
           </div>
         </div>
-        <div class="overlay">
-          <a class="close">&times;</a>
-          <div class="overlay__content">
+        <div class="overlay" id="overlay">
+          <a class="close" id="close">&times;</a>
+          <div class="overlay__content" id="overlay__content">
             <a href="#">Home</a>
             <a href="/add">Add Destination</a>
             <a href="#travel-card">Destinations</a>

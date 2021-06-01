@@ -1,14 +1,6 @@
 import { css } from 'lit-element';
 
 export default css`
-  :root {
-    --text-gray: #3f4954;
-    --text-light: #686666da;
-    --bg-color: #0f0f0f;
-    --white: #ffffff;
-    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  }
-
   /* global */
 
   a {
