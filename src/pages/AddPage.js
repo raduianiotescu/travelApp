@@ -4,8 +4,8 @@ import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
 import { Required, MinLength } from '@lion/form-core';
 import { isRomania } from '../validators/isRomania';
 import '../webcomponents/TravelCard/travel-card.js';
-import '@lion/form/define';
-import '@lion/input/define';
+import '../../node_modules/@lion/form/lion-form';
+import '../../node_modules/@lion/input/lion-input';
 
 class AddDestination extends LitElement {
   static get styles() {
