@@ -1,15 +1,16 @@
 import { LitElement, css, html } from '@lion/core';
 import { ajax } from '@lion/ajax';
-import './AddDestinationForm/addDestinationForm.js';
-import './AddDestinationInput/addDestinationInput.js';
 import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
 import { Required, MinLength } from '@lion/form-core';
-import { isRomania } from '../../validators/isRomania';
+import { isRomania } from '../validators/isRomania';
+import '../webcomponents/TravelCard/travel-card.js';
+import '@lion/form/define';
+import '@lion/input/define';
 
 class AddDestination extends LitElement {
   static get styles() {
     return css`
-      add-destination-form {
+      lion-form {
         margin: 2% 24%;
         padding: 4% 12%;
         border: solid black;
@@ -40,35 +41,35 @@ class AddDestination extends LitElement {
   render() {
     loadDefaultFeedbackMessages();
     return html`
-      <add-destination-form>
+      <lion-form>
         <form name="add-form" @submit=${this._handleFormSubmit}>
-          <add-destination-input
+          <lion-input
             name="name"
             label="Name"
             .fieldName="${'name'}"
             .validators="${[new Required(), new MinLength(5)]}"
-          ></add-destination-input>
-          <add-destination-input
+          ></lion-input>
+          <lion-input
             name="type"
             label="Type"
             .fieldName="${'type'}"
             .validators="${[new Required()]}"
-          ></add-destination-input>
-          <add-destination-input
+          ></lion-input>
+          <lion-input
             name="description"
             label="Description"
             .fieldName="${'description'}"
             .validators="${[new Required()]}"
-          ></add-destination-input>
-          <add-destination-input
+          ></lion-input>
+          <lion-input
             name="imageUrl"
             label="Image Url"
             .fieldName="${'imageUrl'}"
             .validators="${[new Required()]}"
-          ></add-destination-input>
+          ></lion-input>
           <button type="submit">Add Destination</button>
         </form>
-      </add-destination-form>
+      </lion-form>
     `;
   }
 
