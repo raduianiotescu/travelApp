@@ -21,12 +21,12 @@ describe('TravelApp', () => {
     await expect(element).shadowDom.to.be.accessible();
   });
 
-  it('can compute a custom title', () => {
-    // act
-    let newTitle = element._getCustomTitle('Hey');
-    console.log(newTitle);
-    // asert
-    expect(newTitle).to.not.be.empty;
-    expect(newTitle).to.equal(`Your new title is Hey`);
-  });
+  // it('can compute a custom title', () => {
+  //   // act
+  //   let newTitle = element._getCustomTitle('Hey');
+  //   console.log(newTitle);
+  //   // asert
+  //   expect(newTitle).to.not.be.empty;
+  //   expect(newTitle).to.equal(`Your new title is Hey`);
+  // });
 });

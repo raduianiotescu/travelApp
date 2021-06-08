@@ -166,7 +166,7 @@ export class NavComponent extends LitElement {
   }
   render() {
     return html`
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <div class="nav-menu flex-row">
           <div class="nav-brand">
             <a href="#" class="text-gray">Travel App</a>
