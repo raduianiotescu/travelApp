@@ -116,7 +116,7 @@ export class FooterComponent extends LitElement {
           <div class="form-element">
             <input type="text" placeholder="Email" />
           </div>
-          <h6><button class="btn post-btn">Subscribe</button></h6>
+          <h2><button type="submit" class="btn post-btn">Subscribe</button></h2>
         </div>
 
         <div class="follow">
@@ -129,9 +129,9 @@ export class FooterComponent extends LitElement {
       </div>
 
       <div class="rights flex-row">
-        <h4 class="text-gray">
+        <h3 class="text-gray">
           Copyright ©2021 All rights reserved
-        </h4>
+        </h3>
       </div>
     </footer>`;
   }

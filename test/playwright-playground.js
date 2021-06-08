@@ -1,7 +1,7 @@
 const playwright = require('playwright');
 // const iPhone11 = playwright.devices['iPhone 11 Pro'];
 
-const url = 'https://musing-kowalevski-0dee24.netlify.app/';
+const url = 'https://dazzling-mestorf-140d18.netlify.app/';
 
 // selector for nav Places anchor
 const placesNavItemSelector =
