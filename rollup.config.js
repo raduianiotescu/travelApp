@@ -31,13 +31,7 @@ export default merge(baseConfig, {
   // input: './app.js',
   plugins: [
     copy({
-      targets: [
-        { src: './style.css', dest: 'dist' },
-        { src: './destinations.html', dest: 'dist' },
-        { src: './_redirects', dest: 'dist' },
-        { src: './add', dest: 'dist' },
-        { src: './src', dest: 'dist' },
-      ],
+      targets: [{ src: './_redirects', dest: 'dist' }],
     }),
   ],
 });
