@@ -83,7 +83,7 @@ export class NavComponent extends LitElement {
 
         .overlay {
           height: 100%;
-          width: 0;
+          width: 100%;
           position: fixed;
           z-index: 1;
           left: 0;
@@ -91,10 +91,6 @@ export class NavComponent extends LitElement {
           background-color: #24252a;
           overflow-x: hidden;
           transition: width 0.5s ease 0s;
-        }
-
-        .overlay--active {
-          width: 100%;
         }
 
         .overlay__content {
@@ -164,48 +160,79 @@ export class NavComponent extends LitElement {
       `,
     ];
   }
+  static get properties() {
+    return {
+      myBool: { type: Boolean },
+    };
+  }
+
+  constructor() {
+    super();
+    this.myBool = true;
+  }
+
+  handleClick(event) {
+    this.myBool = !this.myBool;
+    console.log(this.myBool);
+  }
+
   render() {
     return html`
-      <nav class="nav" id="nav">
-        <div class="nav-menu flex-row">
-          <div class="nav-brand">
-            <a href="#" class="text-gray">Travel App</a>
-          </div>
-          <div class="toggle-collapse">
-            <div class="toggle-icons menu" id="menu">
-              Menu
-            </div>
-          </div>
-          <div>
-            <ul class="nav-items">
-              <li class="nav-link">
-                <a href="/add">Add Destination</a>
-              </li>
-              <li class="nav-link">
-                <a href="#">Services</a>
-              </li>
-              <li class="nav-link">
-                <a href="#">Destinations</a>
-              </li>
-              <li class="nav-link">
-                <a href="#">About</a>
-              </li>
-              <li class="nav-link">
-                <a href="#">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="overlay" id="overlay">
-          <a class="close" id="close">&times;</a>
-          <div class="overlay__content" id="overlay__content">
-            <a href="#">Home</a>
-            <a href="/add">Add Destination</a>
-            <a href="#travel-card">Destinations</a>
-            <a href="#category">Articles</a>
-            <a href="#footer">Contact</a>
-          </div>
-        </div>
+     
+        ${
+          this.myBool
+            ? html` <nav class="nav" id="nav">
+                <div class="nav-menu flex-row">
+                  <div class="nav-brand">
+                    <a href="#" class="text-gray">Travel App</a>
+                  </div>
+                  <div class="toggle-collapse">
+                    <div
+                      @click=${this.handleClick}
+                      class="toggle-icons menu"
+                      id="menu"
+                    >
+                      Menu
+                    </div>
+                  </div>
+                  <div>
+                    <ul class="nav-items">
+                      <li class="nav-link">
+                        <a href="/add">Add Destination</a>
+                      </li>
+                      <li class="nav-link">
+                        <a href="#">Services</a>
+                      </li>
+                      <li class="nav-link">
+                        <a href="#">Destinations</a>
+                      </li>
+                      <li class="nav-link">
+                        <a href="#">About</a>
+                      </li>
+                      <li class="nav-link">
+                        <a href="#">Contact Us</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>`
+            : html`<div class="overlay" id="overlay">
+                <a @click=${this.handleClick} class="close" id="close"
+                  >&times;</a
+                >
+                <div class="overlay__content" id="overlay__content">
+                  <a @click=${this.handleClick} href="#">Home</a>
+                  <a @click="${this.handleClick}" href="/add"
+                    >Add Destination</a
+                  >
+                  <a @click=${this.handleClick} href="#travel-card"
+                    >Destinations</a
+                  >
+                  <a @click=${this.handleClick} href="#category">Articles</a>
+                  <a @click=${this.handleClick} href="#footer">Contact</a>
+                </div>
+              </div>`
+        }
       </nav>
     `;
   }
