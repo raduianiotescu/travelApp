@@ -10,9 +10,25 @@
 
 [![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
 
-## Quickstart
+## Summary
 
-Welcome to TravelApp starter kit ! You will implement features for the app while learning about frontend development. 
+Travel App is an application, that has been developed specifically for use on smaller devices, such as smartphones and tablets, that can be used by travellers to book and manage their **travel** whilst on the move.
+
+The main purpose of developing the application was didactic. Several concepts of web development have been covered.
+
+\- `Git` - dummy text
+
+\- `HTML/CSS/JavaScript fundamentals` - dummy text
+
+\- `API handling` - dummy text
+
+\- `Routing` - dummy text
+
+\- `Web Components` - dummy text
+
+\- `Responsive Design` - dummy text
+
+\- `Testing` - dummy text
 
 ## Scripts
 
@@ -56,7 +72,7 @@ The REST API to the app is described below.
     "type": "nature"
   }
 }
-```
+  ```
 
 ## Get certain place
 
